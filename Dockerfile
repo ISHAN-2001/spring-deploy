@@ -1,9 +1,5 @@
-FROM gradle:7.4.1-jdk17 AS builder
+FROM eclipse-temurin:17.0.10_7-jre
 WORKDIR /app
-COPY . .
-RUN gradle clean build -x test
-FROM openjdk:17-jre-slim
-WORKDIR /app
-COPY --from=builder /app/build/libs/spring-app-plain.jar .
+COPY build/libs/spring.jar /app/spring.jar
 EXPOSE 8080
-CMD ["java", "-jar", "spring-app-plain.jar"]
+CMD ["java", "-jar", "spring.jar"]
