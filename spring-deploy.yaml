@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: spring-app
-          image: spring-app:1.0
+          image: spring-app:2.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
